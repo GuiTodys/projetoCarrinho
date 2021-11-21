@@ -1,0 +1,10 @@
+<app-header (toggleSideNav)="sidenav.toggle()"></app-header>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav closed mode="side" class="sideNav">
+    <app-side-nav></app-side-nav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-main-content class="main-content"></app-main-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<app-footer></app-footer>

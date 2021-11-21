@@ -2,13 +2,41 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { ContainerComponent } from './container/container.component';
+import { HeaderComponent } from './container/header/header.component';
+import { FooterComponent } from './container/footer/footer.component';
+import { MainContentComponent } from './container/main-content/main-content.component';
+
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatListModule } from "@angular/material/list";
+import { MatIconModule } from "@angular/material/icon";
+import { MatButtonModule } from "@angular/material/button";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SideNavComponent } from './container/side-nav/side-nav.component';
+import { ProductListComponent } from './container/main-content/product-list/product-list.component';
+import { ShoppingCartComponent } from './container/main-content/shopping-cart/shopping-cart.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ContainerComponent,
+    HeaderComponent,
+    FooterComponent,
+    MainContentComponent,
+    SideNavComponent,
+    ProductListComponent,
+    ShoppingCartComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    MatToolbarModule,
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
