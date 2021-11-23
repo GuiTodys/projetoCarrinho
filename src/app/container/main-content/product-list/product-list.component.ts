@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductInformationService } from '../../services/product-information.service';
 
 @Component({
   selector: 'app-product-list',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
 
-  constructor() { }
+  productListTest:string[] = ['assets/memoria.jpg', 'assets/ssd.jpg', 'assets/mouse.jpg', 'assets/memoria.jpg']
+
+  constructor(readonly productInformation:ProductInformationService) { }
 
   ngOnInit(): void {
   }

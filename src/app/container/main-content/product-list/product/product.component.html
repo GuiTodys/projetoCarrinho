@@ -1,0 +1,24 @@
+<article class="product-container">
+  <figure>
+    <img [src]="imgPath" alt="memmory" class="product-image">
+  </figure>
+
+  <h1>
+    {{productName}}
+  </h1>
+
+  <p>
+    {{productDescription}}
+  </p>
+
+  <p class="produt-value">
+    <span class="product-value-first-word">Valor:</span> {{productCost}}
+  </p>
+
+  <div class="button-field">
+    <button mat-raised-button>More information</button>
+    <button mat-raised-button color="primary">Add to cart</button>
+  </div>
+
+</article>
+

@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContainerComponent implements OnInit {
 
+  showIddleMessage:boolean = true
+
   constructor() { }
+
+  hideIddleMessage(){
+    this.showIddleMessage = false
+  }
 
   ngOnInit(): void {
   }

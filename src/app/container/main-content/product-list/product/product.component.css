@@ -1,0 +1,30 @@
+.product-container{
+  border: 2px solid black;
+  padding: 20px
+}
+
+.button-field{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.produt-value{
+  text-align: center;
+  width: auto;
+  font-size: 18px;
+  padding: 10px 0px;
+  border: 1px solid black;
+}
+
+.product-value-first-word{
+  font-weight: bold;
+}
+
+figure{
+  text-align: center;
+}
+
+img{
+  height: 300px;
+}
