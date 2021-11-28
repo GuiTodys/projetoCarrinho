@@ -61,8 +61,7 @@ export class ShoppingCartHandlerService {
     }
 
     orderSubmitHandler(){
-      localStorage.setItem('finalizedOrder',JSON.stringify(this.selectedProductsList))
-
+      
     }
 
   }

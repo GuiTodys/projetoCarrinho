@@ -58,6 +58,8 @@ export class DeliveryInformationsComponent implements OnInit {
     console.log(this.deliveryInformation)
     this.deliveryInformationForm.reset()
     localStorage.setItem('deliveryInformation', JSON.stringify(this.deliveryInformation))
+    localStorage.setItem('finalizedOrder', localStorage.getItem('SelectedProductsList')||'')
+    localStorage.removeItem('SelectedProductsList')
     this.orderFinalized = true
   }
 

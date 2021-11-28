@@ -1,4 +1,4 @@
-<form [formGroup]="setProductsQuantity" (ngSubmit)="shoppingCartData.orderSubmitHandler()">
+<form [formGroup]="setProductsQuantity" (ngSubmit)="shoppingCartData.orderSubmitHandler()" routerLink="delivery-informations">
   <mat-list>
     <h1>Selected items</h1>
 
@@ -44,7 +44,6 @@
     mat-raised-button
     color="primary"
     type="submit"
-    routerLink="delivery-informations"
     [disabled]="setProductsQuantity.invalid"
   >
     Buy now!
