@@ -7,17 +7,17 @@
     {{productName}}
   </h1>
 
-  <p>
+  <p *ngIf="showDescription">
     {{productDescription}}
   </p>
 
   <p class="produt-value">
-    <span class="product-value-first-word">Valor:</span> {{productCost}}
+    <span class="product-value-first-word">Valor:</span> {{productCost | currency:'BRL' }}
   </p>
 
   <div class="button-field">
-    <button mat-raised-button>More information</button>
-    <button mat-raised-button color="primary">Add to cart</button>
+    <button mat-raised-button (click)="showDescriptionHandler()">More information</button>
+    <button mat-raised-button color="primary" (click)="addToCartHandler()">Add to cart</button>
   </div>
 
 </article>

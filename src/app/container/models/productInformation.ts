@@ -6,6 +6,7 @@ export class Product {
   imgPath:string
   description: string
   value: number
+  quantity?: number
 
   constructor(id:string,name:string, imgPath:string, description:string, value:number){
     this.id = id

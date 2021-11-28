@@ -1,0 +1,52 @@
+<form [formGroup]="setProductsQuantity" (ngSubmit)="shoppingCartData.orderSubmitHandler()">
+  <mat-list>
+    <h1>Selected items</h1>
+
+    <mat-divider></mat-divider>
+
+    <mat-list-item
+      *ngFor="let product of shoppingCartData.selectedProductsList"
+    >
+      {{ product.name }}
+      Quantity:
+      <input
+        type="number"
+        name="productQuantity"
+        min="1"
+        max="99"
+        required
+        (change)="
+          shoppingCartData.setProductQuantity(product, productQuantity.value)
+        "
+        #productQuantity
+        [value]="product.quantity"
+        formControlName="productQuantity"
+      />
+      Item cost: {{ product.value * (product.quantity || 0) | currency: "BRL" }}
+      <button
+        type="button"
+        mat-stroked-button
+        color="warn"
+        (click)="shoppingCartData.removeItemFromCart(product.id)"
+      >
+        Remove Item
+      </button>
+    </mat-list-item>
+
+    <mat-divider></mat-divider>
+
+    <mat-list-item>
+      Total:{{ shoppingCartData.totalCartCost | currency: "BRL" }}
+    </mat-list-item>
+  </mat-list>
+
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    routerLink="delivery-informations"
+    [disabled]="setProductsQuantity.invalid"
+  >
+    Buy now!
+  </button>
+</form>

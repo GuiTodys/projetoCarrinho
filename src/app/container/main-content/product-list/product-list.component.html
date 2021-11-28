@@ -1,3 +1,11 @@
 <div class="grid-container">
-<app-product *ngFor="let product of productInformation.productList"  [productName]='product.name' [imgPath]='product.imgPath' [productDescription]='product.description' [productCost]='product.value'></app-product>
+  <app-product
+    *ngFor="let product of productInformation.productList"
+    [productId]="product.id"
+    [productName]="product.name"
+    [imgPath]="product.imgPath"
+    [productDescription]="product.description"
+    [productCost]="product.value"
+    (addToCart)="shoppingCartHandler.addProductToSHoppingCart($event)"
+  ></app-product>
 </div>

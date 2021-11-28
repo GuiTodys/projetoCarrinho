@@ -1,0 +1,78 @@
+<h1>Enter the information for delivery:</h1>
+<form [formGroup]="deliveryInformationForm" (ngSubmit)="deliveryInformationsSubmit()">
+
+  <fieldset>
+    <label for="rua" required>Rua: </label>
+    <input type="text" id="rua" required formControlName="rua">
+    <div *ngIf="rua?.invalid && (rua?.dirty || rua?.touched)">
+      <div *ngIf="numero?.errors?.['required']">
+        * Campo obrigatório.
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <label for="numero" required>Número: </label>
+    <input type="number" id="numero" required formControlName="numero">
+    <div *ngIf="numero?.invalid && (numero?.dirty || numero?.touched)">
+      <div *ngIf="numero?.errors?.['required']">
+        * O campo número é obrigatório e deve conter apenas números.
+      </div>
+      <div *ngIf="numero?.errors?.['min']">
+        * O número deve ser maior que zero.
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <label for="cidade" required>Cidade: </label>
+    <input type="text" id="cidade" required formControlName="cidade">
+    <div *ngIf="cidade?.invalid && (cidade?.dirty || cidade?.touched)">
+      <div *ngIf="cidade?.errors?.['required']">
+        * Campo obrigatório.
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <label for="comprador" required>Comprador: </label>
+    <input type="text" id="comprador" required formControlName="comprador">
+    <div *ngIf="comprador?.invalid && (comprador?.dirty || comprador?.touched)">
+      <div *ngIf="comprador?.errors?.['required']">
+        * Campo obrigatório.
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <label for="telefone" required>Telefone: </label>
+    <input type="number" id="telefone" required formControlName="telefone">
+    <div *ngIf="telefone?.invalid && (telefone?.dirty || telefone?.touched)">
+      <div *ngIf="telefone?.errors?.['required']">
+        * Campo obrigatório (Only numbers).
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <label for="e-mail" required>E-mail: </label>
+    <input type="email" id="email" required formControlName="email">
+    <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+      <div *ngIf="email?.errors?.['required']">
+        * Campo obrigatório. (type: example@example)
+      </div>
+    </div>
+  </fieldset>
+
+  <!-- Colocar o nome do comprador, telefone e e-mail -->
+
+  <button type="submit" [disabled]="deliveryInformationForm.invalid">Enviar</button>
+  <button type="reset">Resetar</button>
+
+</form>
+
+  <article *ngIf="orderFinalized">
+    <p>
+      Order sucessfully registered!
+    </p>
+  </article>

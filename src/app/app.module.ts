@@ -12,6 +12,7 @@ import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatListModule } from "@angular/material/list";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
+import { MatFormFieldModule } from "@angular/material/form-field";
 import {MatGridListModule} from "@angular/material/grid-list"
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,6 +21,9 @@ import { ProductListComponent } from './container/main-content/product-list/prod
 import { ShoppingCartComponent } from './container/main-content/shopping-cart/shopping-cart.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductComponent } from './container/main-content/product-list/product/product.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CartSummaryComponent } from './container/main-content/shopping-cart/cart-summary/cart-summary.component';
+import { DeliveryInformationsComponent } from './container/main-content/shopping-cart/delivery-informations/delivery-informations.component';
 
 const routes: Routes = [
   {
@@ -28,8 +32,12 @@ const routes: Routes = [
   },
    {
     path:'shopping-cart',
-    component: ShoppingCartComponent
+    component: CartSummaryComponent
    },
+   {
+     path: 'shopping-cart/delivery-informations',
+     component: DeliveryInformationsComponent
+   }
   ]
 
 
@@ -44,6 +52,8 @@ const routes: Routes = [
     ProductListComponent,
     ShoppingCartComponent,
     ProductComponent,
+    CartSummaryComponent,
+    DeliveryInformationsComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +64,9 @@ const routes: Routes = [
     MatIconModule,
     MatButtonModule,
     MatGridListModule,
-    RouterModule.forRoot(routes)
+    MatFormFieldModule,
+    RouterModule.forRoot(routes),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

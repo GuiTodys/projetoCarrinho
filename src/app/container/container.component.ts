@@ -11,6 +11,8 @@ export class ContainerComponent implements OnInit {
 
   constructor() { }
 
+
+
   hideIddleMessage(){
     this.showIddleMessage = false
   }
