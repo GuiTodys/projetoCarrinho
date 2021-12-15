@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ShoppingCartHandlerService } from 'src/app/container/services/shopping-cart-handler.service';
 
@@ -18,6 +18,11 @@ export class CartSummaryComponent implements OnInit {
       Validators.max(99)])
     })
    }
+
+   lockInputTypingFromUser(typingEvent: Event){
+    typingEvent.preventDefault()
+   }
+
   ngOnInit(): void {
     this.shoppingCartData.selectedProductsList = JSON.parse(localStorage.getItem('SelectedProductsList')??'')
     this.shoppingCartData.selectedProductsList.forEach(product=>product.quantity=1)

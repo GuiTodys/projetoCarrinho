@@ -1,13 +1,13 @@
-<form [formGroup]="setProductsQuantity" (ngSubmit)="shoppingCartData.orderSubmitHandler()" routerLink="delivery-informations">
+<form [formGroup]="setProductsQuantity" (ngSubmit)="shoppingCartData.orderSubmitHandler()">
   <mat-list>
     <h1>Selected items</h1>
 
     <mat-divider></mat-divider>
 
-    <mat-list-item
-      *ngFor="let product of shoppingCartData.selectedProductsList"
-    >
-      {{ product.name }}
+    <mat-list-item class="shopping-list-display"  *ngFor="let product of shoppingCartData.selectedProductsList">
+      <div>
+        {{ product.name }}
+      </div>
       Quantity:
       <input
         type="number"
@@ -21,6 +21,7 @@
         #productQuantity
         [value]="product.quantity"
         formControlName="productQuantity"
+        (keypress)="lockInputTypingFromUser($event)"
       />
       Item cost: {{ product.value * (product.quantity || 0) | currency: "BRL" }}
       <button
@@ -44,6 +45,7 @@
     mat-raised-button
     color="primary"
     type="submit"
+    routerLink="delivery-informations"
     [disabled]="setProductsQuantity.invalid"
   >
     Buy now!
