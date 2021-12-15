@@ -1,10 +1,51 @@
 <form [formGroup]="setProductsQuantity" (ngSubmit)="shoppingCartData.orderSubmitHandler()">
   <mat-list>
-    <h1>Selected items</h1>
+    <!-- <mat-divider></mat-divider> -->
 
-    <mat-divider></mat-divider>
+    <ul class="shopping-list-display">
+      <li class="shopping-list-item"  *ngFor="let product of shoppingCartData.selectedProductsList">
 
-    <mat-list-item class="shopping-list-display"  *ngFor="let product of shoppingCartData.selectedProductsList">
+        <div class="product-name">
+          {{ product.name }}
+        </div>
+
+        <div class="product-quantity">
+        Quantity:
+        <input
+          #productQuantity
+          type="number"
+          name="productQuantity"
+          min="1"
+          max="99"
+          required
+          (change)="shoppingCartData.setProductQuantity(product, productQuantity.value)"
+          [value]="product.quantity"
+          formControlName="productQuantity"
+          (keypress)="lockInputTypingFromUser($event)"
+           
+        />
+      </div>
+
+      <div class="product-cost">
+        {{ product.value * (product.quantity || 0) | currency: "BRL" }} <br>
+        <span class="unity-price">R$ per unity: {{product.value | currency: "BRL" }}</span> 
+      </div>
+
+      <div class="button-remove-item">
+        <button
+          type="button"
+          mat-stroked-button
+          color="warn"
+          (click)="shoppingCartData.removeItemFromCart(product.id)"
+        >
+          Remove Item
+        </button>
+      </div>
+
+      </li>
+    </ul>
+
+    <!-- <mat-list-item class="shopping-list-display"  *ngFor="let product of shoppingCartData.selectedProductsList">
       <div>
         {{ product.name }}
       </div>
@@ -32,9 +73,10 @@
       >
         Remove Item
       </button>
-    </mat-list-item>
+    </mat-list-item> -->
 
-    <mat-divider></mat-divider>
+
+    <!-- <mat-divider></mat-divider> -->
 
     <mat-list-item>
       Total:{{ shoppingCartData.totalCartCost | currency: "BRL" }}

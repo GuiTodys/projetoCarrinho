@@ -1,3 +1,32 @@
-.mat-list-item-content{
-  width: 100%;
+.shopping-list-display{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  border: 1px solid black;
+  margin: 0px 30px;
+  padding: 10px 0px;
+  border-radius: 10px;
+}
+
+.shopping-list-item{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.product-name{
+  width: 300px;
+}
+
+.product-quantity input{
+  width: 2.5em;
+  text-align: center;
+}
+
+.product-cost{
+  text-align: center;
+}
+
+.unity-price{
+  font-size: 0.85em;
 }
