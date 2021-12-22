@@ -60,8 +60,28 @@ export class ShoppingCartHandlerService {
     this.sumProductsCost()
     }
 
-    orderSubmitHandler(){
-      
+    // Button handlers
+    increaseProductQuantityHandler(index:number):void{
+      if(this.selectedProductsList[index].quantity){
+        this.selectedProductsList[index].quantity = this.increaseQuantity(this.selectedProductsList[index].quantity||1)
+      }
+    }
+
+    decreaseProductQuantityHandler(index:number):void{
+      if(this.selectedProductsList[index].quantity){
+        this.selectedProductsList[index].quantity = this.decreaseQuantity(this.selectedProductsList[index].quantity||1)
+      }
+    }
+
+    increaseQuantity(productQuantity:number):number{
+      return productQuantity+1
+    }
+
+    decreaseQuantity(productQuantity:number):number{
+      if(productQuantity>2){
+        return productQuantity-1
+      }
+      return 1
     }
 
   }

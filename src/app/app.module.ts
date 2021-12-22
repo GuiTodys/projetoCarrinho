@@ -66,7 +66,7 @@ const routes: Routes = [
     MatGridListModule,
     MatFormFieldModule,
     RouterModule.forRoot(routes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

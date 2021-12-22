@@ -6,7 +6,7 @@
 
   <mat-divider></mat-divider>
 
-  <mat-list-item mat-list-icon (click)='navigationClickHandle()' routerLink="shopping-cart">
+  <mat-list-item mat-list-icon (click)='navigationClickHandle()' routerLink="shopping-cart" [disabled]="showShoppingCartNavOption">
     <mat-icon>shopping_cart</mat-icon><a class="list-item">Shopping Cart</a>
   </mat-list-item>
 
