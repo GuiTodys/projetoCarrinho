@@ -24,8 +24,13 @@ import { ProductComponent } from './container/main-content/product-list/product/
 import { ReactiveFormsModule } from '@angular/forms';
 import { CartSummaryComponent } from './container/main-content/shopping-cart/cart-summary/cart-summary.component';
 import { DeliveryInformationsComponent } from './container/main-content/shopping-cart/delivery-informations/delivery-informations.component';
+import { HomePageComponent } from './container/main-content/home-page/home-page.component';
 
 const routes: Routes = [
+  {
+    path:'',
+    component: HomePageComponent
+  },
   {
     path:'product-list',
    component: ProductListComponent
@@ -37,7 +42,7 @@ const routes: Routes = [
    {
      path: 'shopping-cart/delivery-informations',
      component: DeliveryInformationsComponent
-   }
+   },
   ]
 
 
@@ -53,7 +58,8 @@ const routes: Routes = [
     ShoppingCartComponent,
     ProductComponent,
     CartSummaryComponent,
-    DeliveryInformationsComponent
+    DeliveryInformationsComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,

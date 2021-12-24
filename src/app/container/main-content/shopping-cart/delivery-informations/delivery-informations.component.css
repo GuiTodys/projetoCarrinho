@@ -1,0 +1,84 @@
+/* Disabling spin from inputs */
+/* phone number */
+.phone-number input::-webkit-outer-spin-button, 
+.phone-number input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+
+.phone-number input{
+    -moz-appearance: textfield;
+}
+
+/* address number */
+.house-number input::-webkit-outer-spin-button, 
+.house-number input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+
+.house-number input{
+    -moz-appearance: textfield;
+}
+
+/* Form container */
+.form-container{
+    display: grid;
+    row-gap: 0.8em;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.delivery-information-text{
+    grid-row:1;
+    margin-bottom: 0;
+    margin-top: 0.8em;
+}
+
+.street, .house-number, .city{
+    grid-row: 2;
+}
+
+.state{
+    grid-row: 3;
+}
+
+.personal-information-text{
+    grid-row: 4;
+    margin-bottom: 0;
+}
+
+.buyer-name, .phone-number, .email-address{
+    grid-row:5;
+}
+
+.button-field{
+    grid-row: 6;
+    grid-column: 1/5;
+    justify-self: center;
+    margin-top: 1em;
+}
+
+.form-container fieldset{
+    /* border: 1px solid black; */
+    border-radius: 5px;
+}
+
+/* Invalid fields message */
+.invalid-field-message{
+    font-style:italic;
+    color: red;
+}
+
+/* Header */
+h2{
+    margin-top: 0.5em;
+    font-weight: bold;
+    color: rgb(66, 59, 59);
+}
+
+h1, form{
+    margin-left: 15px;
+}
+
+/* buttons */
+.button-field button{
+    margin:0.25em
+}

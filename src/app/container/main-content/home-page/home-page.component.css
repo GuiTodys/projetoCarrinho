@@ -1,0 +1,10 @@
+.main-text{
+    padding-left: 15px;
+    padding-top: 15px;
+    font-size: 17pt;
+    font-style: italic;
+  }
+
+.main-text span{
+  font-weight: bold;
+}

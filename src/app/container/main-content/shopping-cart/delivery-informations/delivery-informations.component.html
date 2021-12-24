@@ -1,74 +1,92 @@
-<h1>Enter the information for delivery:</h1>
-<form [formGroup]="deliveryInformationForm" (ngSubmit)="deliveryInformationsSubmit()">
 
-  <fieldset>
-    <label for="rua" required>Rua: </label>
+<form [formGroup]="deliveryInformationForm" (ngSubmit)="deliveryInformationsSubmit()" class="form-container">
+
+  <h2 class="delivery-information-text">Delivery information</h2>
+
+  <fieldset class="street">
+    <label for="rua" required>Street: </label>
     <input type="text" id="rua" required formControlName="rua">
     <div *ngIf="rua?.invalid && (rua?.dirty || rua?.touched)">
-      <div *ngIf="numero?.errors?.['required']">
-        * Campo obrigatório.
+      <div *ngIf="numero?.errors?.['required']" class="invalid-field-message">
+        * Mandatory field.
       </div>
     </div>
   </fieldset>
 
-  <fieldset>
-    <label for="numero" required>Número: </label>
+  <fieldset class="house-number">
+    <label for="numero" required>House number: </label>
     <input type="number" id="numero" required formControlName="numero">
     <div *ngIf="numero?.invalid && (numero?.dirty || numero?.touched)">
-      <div *ngIf="numero?.errors?.['required']">
-        * O campo número é obrigatório e deve conter apenas números.
+      <div *ngIf="numero?.errors?.['required']" class="invalid-field-message">
+        * This field is mandatory and supports only numbers.
       </div>
-      <div *ngIf="numero?.errors?.['min']">
-        * O número deve ser maior que zero.
+      <div *ngIf="numero?.errors?.['min']" class="invalid-field-message">
+        * Insert a valid house number.
       </div>
     </div>
   </fieldset>
 
-  <fieldset>
-    <label for="cidade" required>Cidade: </label>
+  <fieldset class="city">
+    <label for="cidade" required>City: </label>
     <input type="text" id="cidade" required formControlName="cidade">
     <div *ngIf="cidade?.invalid && (cidade?.dirty || cidade?.touched)">
-      <div *ngIf="cidade?.errors?.['required']">
-        * Campo obrigatório.
+      <div *ngIf="cidade?.errors?.['required']" class="invalid-field-message">
+        * Mandatory field.
       </div>
     </div>
   </fieldset>
 
-  <fieldset>
-    <label for="comprador" required>Comprador: </label>
+  <fieldset class="state">
+    <label for="estado" required>State: </label>
+    <input type="text" id="estado" required formControlName="estado">
+    <div *ngIf="estado?.invalid && (estado?.dirty || estado?.touched)">
+      <div *ngIf="estado?.errors?.['required']" class="invalid-field-message">
+        * Mandatory field.
+      </div>
+    </div>
+  </fieldset>
+
+
+  <h2 class="personal-information-text">Personal Information</h2>
+
+  <fieldset class="buyer-name">
+    <label for="comprador" required>Name: </label>
     <input type="text" id="comprador" required formControlName="comprador">
     <div *ngIf="comprador?.invalid && (comprador?.dirty || comprador?.touched)">
-      <div *ngIf="comprador?.errors?.['required']">
-        * Campo obrigatório.
+      <div *ngIf="comprador?.errors?.['required']" class="invalid-field-message">
+        * Mandatory field.
       </div>
     </div>
   </fieldset>
 
-  <fieldset>
-    <label for="telefone" required>Telefone: </label>
+  <fieldset class="phone-number">
+    <label for="telefone" required>Phone number: </label>
     <input type="number" id="telefone" required formControlName="telefone">
     <div *ngIf="telefone?.invalid && (telefone?.dirty || telefone?.touched)">
-      <div *ngIf="telefone?.errors?.['required']">
-        * Campo obrigatório (Only numbers).
+      <div *ngIf="telefone?.errors?.['required']" class="invalid-field-message">
+        * This field is mandatory and supports only numbers.
       </div>
     </div>
   </fieldset>
 
-  <fieldset>
-    <label for="e-mail" required>E-mail: </label>
-    <input type="email" id="email" required formControlName="email">
+  <fieldset class="email-address">
+    <label for="e-mail" required>E-mail address: </label>
+    <input type="email" id="email" email required formControlName="email">
     <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
-      <div *ngIf="email?.errors?.['required']">
-        * Campo obrigatório. (type: example@example)
+      <div *ngIf="email?.errors?.['required']" class="invalid-field-message">
+        * Mandatory field. (type: example@example)
+      </div>
+      <div *ngIf="email?.errors?.['pattern']" class="invalid-field-message">
+        * Invalid e-mail format. (type: example@example.com)
       </div>
     </div>
   </fieldset>
 
-  <!-- Colocar o nome do comprador, telefone e e-mail -->
-
-  <button type="submit" [disabled]="deliveryInformationForm.invalid">Enviar</button>
-  <button type="reset">Resetar</button>
-
+  <div class="button-field">
+    <button type="submit" mat-raised-button color="primary" [disabled]="deliveryInformationForm.invalid">Finish</button>
+    <button type="reset" mat-raised-button color="primary">Clear</button>
+  </div>
+  
 </form>
 
   <article *ngIf="orderFinalized">

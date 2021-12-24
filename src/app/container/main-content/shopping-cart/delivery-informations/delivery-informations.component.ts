@@ -11,7 +11,7 @@ export class DeliveryInformationsComponent implements OnInit {
 
   deliveryInformationForm: FormGroup;
 
-  deliveryInformation: deliveryInformation = new deliveryInformation('',0,'','',0,'')
+  deliveryInformation: deliveryInformation = new deliveryInformation('',0,'','','',0,'')
 
   orderFinalized:boolean = false
 
@@ -20,9 +20,10 @@ export class DeliveryInformationsComponent implements OnInit {
       'rua': new FormControl('',[Validators.required]),
       'numero': new FormControl('',[Validators.required, Validators.min(1)]),
       'cidade': new FormControl('',[Validators.required]),
+      'estado': new FormControl('',[Validators.required]),
       'comprador': new FormControl('',[Validators.required]),
       'telefone': new FormControl('',[Validators.required]),
-      'email': new FormControl('',[Validators.required])
+      'email': new FormControl('',[Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")])
     })
   }
 
@@ -41,6 +42,10 @@ export class DeliveryInformationsComponent implements OnInit {
     return this.deliveryInformationForm.get('cidade')
   }
 
+  get estado(){
+    return this.deliveryInformationForm.get('estado')
+  }
+
   get comprador() {
     return this.deliveryInformationForm.get('comprador')
   }
@@ -54,7 +59,7 @@ export class DeliveryInformationsComponent implements OnInit {
   }
 
   deliveryInformationsSubmit(){
-    this.deliveryInformation = new deliveryInformation(this.rua?.value, this.numero?.value, this.cidade?.value, this.comprador?.value, this.telefone?.value, this.email?.value)
+    this.deliveryInformation = new deliveryInformation(this.rua?.value, this.numero?.value, this.cidade?.value, this.estado?.value,this.comprador?.value, this.telefone?.value, this.email?.value)
     console.log(this.deliveryInformation)
     this.deliveryInformationForm.reset()
     localStorage.setItem('deliveryInformation', JSON.stringify(this.deliveryInformation))
