@@ -6,6 +6,7 @@
   margin: 0px 30px;
   padding: 10px 0px;
   border-radius: 10px;
+  list-style-type: none;
 }
 
 .shopping-list-item{
@@ -50,6 +51,16 @@
   font-style: italic;
   font-weight: bold;
   margin-left: 0.25em;
+}
+
+.empty-cart-warning{
+  margin-left: 1em;
+  font-size: 1.25em;
+}
+
+.empty-cart-warning span{
+  font-style: italic;
+  color: red;
 }
 
 /* Selecting spins from input type number */

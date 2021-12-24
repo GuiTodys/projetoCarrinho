@@ -2,6 +2,12 @@
   <mat-list>
 
     <ul class="shopping-list-display">
+
+      <li *ngIf="shoppingCartData.showEmptyCartMessage" class="empty-cart-warning">
+        The shopping cart is <span>empty</span>!<br>
+        Please, select at least one product from the list!
+      </li>
+
       <li class="shopping-list-item"  *ngFor="let product of shoppingCartData.selectedProductsList; let index=index">
 
         <div class="product-name">
@@ -54,7 +60,6 @@
     color="primary"
     type="submit"
     routerLink="delivery-informations"
-    [disabled]="setProductsQuantity.invalid"
     class="button-buy-now"
   >
     Buy now!

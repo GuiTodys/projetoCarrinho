@@ -10,6 +10,7 @@ import { ShoppingCartHandlerService } from 'src/app/container/services/shopping-
 export class CartSummaryComponent implements OnInit {
 
   setProductsQuantity: FormGroup;
+  showEmptyCartMessage: boolean = true
 
   constructor(readonly shoppingCartData:ShoppingCartHandlerService){
     this.setProductsQuantity = new FormGroup({
@@ -28,6 +29,7 @@ export class CartSummaryComponent implements OnInit {
     this.shoppingCartData.selectedProductsList.forEach(product=>product.quantity=1)
     localStorage.setItem('SelectedProductsList', JSON.stringify(this.shoppingCartData.selectedProductsList))
     this.shoppingCartData.sumProductsCost()
+    this.shoppingCartData.emptyCartMessageHandler()
   }
 
 

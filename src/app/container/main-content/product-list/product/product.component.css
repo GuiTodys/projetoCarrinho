@@ -1,6 +1,11 @@
 .product-container{
   border: 2px solid black;
-  padding: 20px
+  padding: 20px;
+  width: 450px;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .button-field{

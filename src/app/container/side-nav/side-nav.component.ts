@@ -16,16 +16,10 @@ export class SideNavComponent implements OnInit {
 
   navigationClickHandle(){
     this.hideIddleMessage.emit('')
-  }
-
-  toggleShoppingCartNavOptionView(){
-    if(this.shoppingCartInformation.selectedProductsList.length>0){
-      this.showShoppingCartNavOption = true
-    }
+    this.shoppingCartInformation.emptyCartMessageHandler()
   }
 
   ngOnInit(): void {
-    this.toggleShoppingCartNavOptionView()
   }
 
 }

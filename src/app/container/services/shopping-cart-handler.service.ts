@@ -10,9 +10,17 @@ export class ShoppingCartHandlerService {
   selectedProduct: Product | undefined = undefined
   selectedProductsList: Product[] = []
   totalCartCost: number = 0
+  showEmptyCartMessage: boolean = true
 
   constructor(readonly productInformation: ProductInformationService) { }
 
+  emptyCartMessageHandler(){
+    if(this.selectedProductsList.length>0){
+       this.showEmptyCartMessage = false
+    } else{
+      this.showEmptyCartMessage = true
+    }
+  }
 
   addProductToSHoppingCart(productId: string) {
     this.selectedProduct = this.productInformation.productList.find(product => product.id === productId) ?? this.productInformation.product1
@@ -34,6 +42,7 @@ export class ShoppingCartHandlerService {
     this.selectedProductsList = this.selectedProductsList.filter((product) => productId !== product.id)
     localStorage.setItem('SelectedProductsList', JSON.stringify(this.selectedProductsList))
     this.sumProductsCost()
+    this.emptyCartMessageHandler()
   }
 
   calculateProductCostBasedOnQuantity(product: Product){
@@ -64,12 +73,16 @@ export class ShoppingCartHandlerService {
     increaseProductQuantityHandler(index:number):void{
       if(this.selectedProductsList[index].quantity){
         this.selectedProductsList[index].quantity = this.increaseQuantity(this.selectedProductsList[index].quantity||1)
+      } else{
+        this.selectedProductsList[index].quantity = 1
       }
+      this.sumProductsCost()
     }
 
     decreaseProductQuantityHandler(index:number):void{
       if(this.selectedProductsList[index].quantity){
         this.selectedProductsList[index].quantity = this.decreaseQuantity(this.selectedProductsList[index].quantity||1)
+        this.sumProductsCost()
       }
     }
 
